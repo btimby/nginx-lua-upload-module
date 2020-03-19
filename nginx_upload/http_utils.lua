@@ -142,19 +142,19 @@ function M.form_multipart_body(parts, boundary)
             elseif part['filename'] ~= '' then
                 table.insert(body, '--'..boundary..crlf)
                 table.insert(body,
-                    'Content-Disposition: form-data; name="'..part_name..'.name"'..dcrlf)
+                    'Content-Disposition: form-data; name="'..part_name..'[filename]"'..dcrlf)
                 table.insert(body, part['filename']..crlf)
                 table.insert(body, '--'..boundary..crlf)
                 table.insert(body,
-                    'Content-Disposition: form-data; name="'..part_name..'.path"'..dcrlf)
+                    'Content-Disposition: form-data; name="'..part_name..'[path]"'..dcrlf)
                 table.insert(body, part['filepath']..crlf)
                 table.insert(body, '--'..boundary..crlf)
                 table.insert(body,
-                    'Content-Disposition: form-data; name="'..part_name..'.content-type"'..dcrlf)
+                    'Content-Disposition: form-data; name="'..part_name..'[content-type]"'..dcrlf)
                 table.insert(body, part['content_type']..crlf)
                 table.insert(body, '--'..boundary..crlf)
                 table.insert(body,
-                    'Content-Disposition: form-data; name="'..part_name..'.size"'..dcrlf)
+                    'Content-Disposition: form-data; name="'..part_name..'[size]"'..dcrlf)
                 table.insert(body, part['size']..crlf)
             end
         end

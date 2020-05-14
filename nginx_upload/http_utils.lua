@@ -150,7 +150,7 @@ function M.form_multipart_body(parts, boundary)
                 table.insert(body, part['filepath']..crlf)
                 table.insert(body, '--'..boundary..crlf)
                 table.insert(body,
-                    'Content-Disposition: form-data; name="'..part_name..'[content-type]"'..dcrlf)
+                    'Content-Disposition: form-data; name="'..part_name..'[content_type]"'..dcrlf)
                 table.insert(body, part['content_type']..crlf)
                 table.insert(body, '--'..boundary..crlf)
                 table.insert(body,

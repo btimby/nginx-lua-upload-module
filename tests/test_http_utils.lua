@@ -317,7 +317,7 @@ function test_form_multipart_body_with_filename()
               '\r\n',
               'fpath\r\n',
               '--test_boundary\r\n',
-              'Content-Disposition: form-data; name="file_part_name.content-type"\r\n',
+              'Content-Disposition: form-data; name="file_part_name.content_type"\r\n',
               '\r\n',
               'ctype\r\n',
               '--test_boundary\r\n',

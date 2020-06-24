@@ -145,8 +145,9 @@ end
 local cleanup_codes = string_utils.enumerate_from_string_range(upload_cleanup)
 local body = http_utils.form_multipart_body(parts, boundary)
 
-local response = ngx.location.capture(backend_url,
-                                      { method=ngx.HTTP_POST, body=body })
+local response = ngx.location.capture(backend_url, {
+    method=ngx.HTTP_POST, body=body, args=ngx.req.get_uri_args()
+})
 ngx.status = response.status
 if cleanup_codes[response.status] then
     -- remove temporary uploaded files

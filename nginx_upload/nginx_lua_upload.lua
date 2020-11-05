@@ -106,11 +106,7 @@ while true do
         local part = {}
 
         if file_descriptor then
-            part['size'], err = posix.lseek(file_descriptor, 0, posix.SEEK_END)
-            if err then
-                ngx.log(ngx.ERR, "Failed to determine file size: " .. err)
-                ngx.exit(ngx.HTTP_INTERNAL_SERVER_ERROR)
-            end
+            part['size'] = posix.fstat(file_descriptor).st_size
             posix.close(file_descriptor)
             posix.chmod(current_path, 'rw-rw----')
         end
